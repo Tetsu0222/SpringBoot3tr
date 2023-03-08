@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>top page</title>
+  <meta http-equiv="Content-Type" 
+    content="text/html; charset=UTF-8" />
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet">
+</head>
+<body class="container">
+  <h1 class="display-4 mb-4">Hello page</h1>
+  <p th:text="${msg}"></p>
+  <ul class="list-group" th:each="item:${data}">
+    <li class="list-group-item" th:text="${item}"></li>
+  </ul>
+</body>
+</html>
