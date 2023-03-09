@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title th:text="${title}"></title>
+  <meta http-equiv="Content-Type" 
+    content="text/html; charset=UTF-8" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet">
+</head>
+
+<body class="container">
+  <h1 class="display-4 mb-4" th:text="${title}"></h1>
+  <p th:text="${msg}"></p>
+  
+  <form method="post" action="/delete" th:object="${formModel}">
+    <input type="hidden" name="id" th:value="*{id}" />
+    <ul>
+      <li>名前：  <span th:text="*{name}"></span></li>
+      <li>メール： <span th:text="*{mail}"></span></li>
+      <li>年齢：  <span th:text="*{age}"></span></li>
+
+    </ul>
+    <input type="submit"  class="btn btn-primary" value="Delete" />
+  </form>
+</body>
+
+</html>
