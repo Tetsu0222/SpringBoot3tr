@@ -1,0 +1,12 @@
+ <!-- thymeleafで作成したHTMLファイルはtemplatesに保存 -->
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">			<!-- th～があればthymeleafであることを宣言 -->
+<head>
+<meta charset="UTF-8">
+<title>Hello</title>
+</head>
+<body>
+Hello,world! こんにちは<span th:text="${name}"></span>さん！ <!-- th:textが検索され、変数式( ${○○} )がバインドされている値になる。 -->
+</body>
+</html>
