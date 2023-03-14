@@ -4,12 +4,9 @@
 <meta charset="UTF-8">
 <title>ToDo List</title>
 <link th:href="@{/css/style.css}" rel="stylesheet" type="text/css">
-<!-- ③ -->
 </head>
 <body>
-  <!-- Todolist4 で追加 開始 -->
   <form th:action="@{/}" method="post" th:object="${todoQuery}">
-    <!-- ① -->
     <div style="display: flex">
       <table border="1">
         <tr>
@@ -52,9 +49,8 @@
     <div th:if="${#fields.hasErrors('deadlineFrom')}" th:errors="*{deadlineFrom}" th:errorclass="red"></div>
     <div th:if="${#fields.hasErrors('deadlineTo')}" th:errors="*{deadlineTo}" th:errorclass="red"></div>
     <hr>
-    <button type="submit" th:formaction="@{/todo/create/form}">新規追加</button>
+    <button type="submit" th:formaction="@{/todo/create}">新規追加</button>
   </form>
-  <!-- Todolist4 で追加 終了 -->
   <a th:href="@{/todo/create}">新規追加</a>
   <table border="1">
     <tr>
@@ -66,18 +62,14 @@
       <th>完了</th>
     </tr>
     <tr th:each="todo:${todoList}">
-      <!-- ① -->
       <td th:text="${todo.id}"></td>
       <td>
         <a th:href="@{/todo/__${todo.id}__}" th:text="${todo.title}"></a>
       </td>
       <td th:text="${todo.importance == 1 ? '★★★':'★'}"></td>
-      <!-- ② -->
       <td th:text="${todo.urgency == 1 ? '★★★':'★'}"></td>
-      <!-- ② -->
       <td th:text="${todo.deadline}"></td>
       <td th:text="${todo.done == 'Y' ? '完了':''}"></td>
-      <!-- ② -->
     </tr>
   </table>
 </body>
